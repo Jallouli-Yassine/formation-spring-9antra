@@ -8,6 +8,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name="users")
 //@Data
 public class UserEntity {
     @Id
@@ -24,5 +25,9 @@ public class UserEntity {
     private String email;
 
     private String password;
+
+    private String cofirmPassword;
+
+    private String username;
 
 }
