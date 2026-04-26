@@ -1,6 +1,7 @@
 package tn.kantra.kantraspring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import tn.kantra.kantraspring.entities.Comment;
 import tn.kantra.kantraspring.services.CommentService;
@@ -19,6 +20,7 @@ public class CommentController {
         commentService.ajouterComment(idUser,idPost,c);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("getCommentsByPost")
     public List<Comment> getCommentsByPost(@RequestParam Long idPost){
         return commentService.findCommentsByPost(idPost);

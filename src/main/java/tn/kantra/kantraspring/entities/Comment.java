@@ -27,5 +27,4 @@ public class Comment {
 
     @ManyToOne
     private UserEntity user;
-
 }
